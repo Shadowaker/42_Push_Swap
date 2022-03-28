@@ -6,13 +6,13 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:50:26 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/03/23 17:54:05 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/03/28 21:08:16 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_find_chunk(t_stack *a)
+void	ft_find_chunk(t_stack *a)
 {
 	int	i;
 	int	j;
@@ -40,13 +40,39 @@ static void	ft_find_chunk(t_stack *a)
 	}
 }
 
-int	*ft_lis(t_stack *a)
+void	ft_lis(t_stack *a)
 {
-	int	*res;
+	int	*arr;
+	int	i;
+	int	j;
+	int	k;
+	int	x;
 
-	res = malloc(sizeof(int) * 2);
-	ft_find_chunk(a);
-	res[0] = 1;
-	res[1] = 0;
-	return (res);
+	arr = malloc(sizeof(int) * a->size);
+	i = 0;
+	x = 0;
+	while (i < a->size)
+	{
+		j = 0;
+		while (j < i)
+		{
+			if (a->stack[j] > a->stack[i])
+			{
+				k = 0;
+				while (k < x)
+				{
+					if (arr[k] == a->stack[j])
+						break ;
+					x++;
+				}
+				if (k == x)
+				{
+					arr[k] = a->stack[j];
+					x++;
+				}
+			}
+			j++;
+		}
+		i++;
+	}
 }

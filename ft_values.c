@@ -19,7 +19,7 @@ int	ft_upper(t_stack *arr, int n)
 	int	tmp;
 
 	i = 0;
-	tmp = 0;
+	tmp = ft_min(arr);
 	while (i < arr->size)
 	{
 		if (arr->stack[i] > n)

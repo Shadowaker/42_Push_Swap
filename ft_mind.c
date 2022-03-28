@@ -12,27 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_op(t_stack *a, t_stack *b)
-{
-	int	off;
-//	int	osize;
-
-	off = a->size / 2;
-//	osize = a->size;
-	while (a->size > off)
-	{
-		if (issorted(a) == 0)
-			ft_heapsort(a, b);
-		else
-			break ;
-	}
-	while (b->size > 0)
-	{
-		ft_pa(a, b);
-		write(1, "pa\n", ft_strlen("pa\n"));
-	}
-}
-
 void	ft_thinker_2(t_stack *a, t_stack *b, int sigma, int o)
 {
 	int	off;
@@ -54,57 +33,112 @@ void	ft_thinker_2(t_stack *a, t_stack *b, int sigma, int o)
 	ft_o_set(a, b, o);
 }
 
-void	ft_thinker(t_stack *a, t_stack *b)
+void	ft_thinker(t_stack *a, t_stack *b, int ind)
 {
-	int	min_a;
-	int	min_b;
-//	int	off;
-	int	sigma;
-	int	o;
+	int	pos_a;
 
-	min_a = ft_min(a);
-	min_b = ft_min(b);
-	if (ft_return_index(a, min_a) > ft_return_index(b, min_b))
-	{
-	//	off = ft_return_index(b, min_b);
-		o = 0;
-	}
-	else
-	{
-	//	off = ft_return_index(a, min_a);
-		o = 1;
-	}
-	sigma = ft_sigma(a, b, min_a, min_b);
-	ft_thinker_2(a, b, sigma, o);
+	pos_a = ft_return_index(a, ft_upper(a, b->stack[ind]));
 }
 
 void	ft_mind(t_stack *a, t_stack *b)
 {
+	int	index;
+	int	pos_a;
+
+	ft_find_chunk(a);
 	ft_pushinit(a, b);
-	ft_thinker(a, b);
-	ft_pa(a, b);
-	write(1, "pa\n", ft_strlen("pa\n"));
-	if (ft_return_index(a, ft_min(a)) == 1)
+	while (b->size > 0)
 	{
-		ft_sa(a);
-		write(1, "sa\n", ft_strlen("sa\n"));
+		//sleep(1);
+		index = ft_check(a, b, -1);
+		pos_a = ft_return_index(a, ft_upper(a, b->stack[index]));
+		//printf("%d - %d \n", index, pos_a);
+	//	show_stacks(a, b);
+		if (index < b->size / 2)
+		{
+			while (index > 0 && pos_a - index < a->size / 2 && pos_a > 0)
+			{
+				ft_rr(a, b);
+				write(1, "rr\n", ft_strlen("rr\n"));
+				index--;
+				pos_a--;
+			}
+			while (index > 0)
+			{
+				ft_rb(b);
+				write(1, "rb\n ", ft_strlen("rb\n"));
+				index--;
+			}
+			if (pos_a < a->size / 2)
+			{
+				while (pos_a > 0)
+				{
+					ft_ra(a);
+					write(1, "ra\n", ft_strlen("ra\n"));
+					pos_a--;
+				}
+			}
+			else
+			{
+				while (pos_a < a->size)
+				{
+					ft_rra(a);
+					write(1, "rra\n", ft_strlen("rra\n"));
+					pos_a++;
+				}
+			}
+		}
+		else
+		{
+			while (index < b->size && pos_a + a->size - index > a->size / 2 && pos_a < a->size)
+			{
+				ft_rrr(a, b);
+				write(1, "rrr\n", ft_strlen("rrr\n"));
+				index++;
+				pos_a++;
+			}
+			while (index < b->size)
+			{
+				ft_rrb(b);
+				write(1, "rrb\n", ft_strlen("rrb\n"));
+				index++;
+			}
+			if (pos_a > a->size / 2)
+			{
+				while (pos_a < a->size)
+				{
+					ft_rra(a);
+					write(1, "rra\n", ft_strlen("rra\n"));
+					pos_a++;
+				}
+			}
+			else
+			{
+				while (pos_a > 0)
+				{
+					ft_ra(a);
+					write(1, "ra\n", ft_strlen("ra\n"));
+					pos_a--;
+				}
+			}
+		}
+		ft_pa(a, b);
+		write(1, "pa\n", ft_strlen("pa\n"));
 	}
-}
-
-void	ft_heapsort(t_stack *a, t_stack *b)
-{
-	int	x;
-	int	ind;
-
-	x = ft_min(a);
-	ind = ft_return_index(a, x);
-	if (ind >= a->size / 2)
-		ft_push_down(a, a->size - ind);
+	index = ft_return_index(a, ft_min(a));
+	if (index < a->size / 2)
+	{
+		while (issorted(a) != 1)
+		{
+			ft_ra(a);
+			write(1, "ra\n", ft_strlen("ra\n"));
+		}
+	}
 	else
-		ft_push_up(a, ind);
-	if (issorted(a) == 0)
-	{
-		ft_pb(a, b);
-		write(1, "pb\n", ft_strlen("pb\n"));
-	}
+		while (issorted(a) != 1)
+		{
+			ft_rra(a);
+			write(1, "rra\n", ft_strlen("rra\n"));
+		}
+	//show_stack(a, "a");
 }

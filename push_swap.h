@@ -23,7 +23,6 @@ typedef struct s_stack
 {
 	int	*stack;
 	int	size;
-	//int	*xy;
 	int	chunk_start;
 	int	chunk_end;
 }	t_stack;
@@ -70,6 +69,6 @@ int		ft_sigma(t_stack *a, t_stack *b, int min_a, int min_b);
 void	ft_o_set(t_stack *a, t_stack *b, int o);
 void	ft_o_set_a(t_stack *a);
 int		ft_check(t_stack *a, t_stack *b, int i);
-int		*ft_lis(t_stack *a);
+void	ft_find_chunk(t_stack *a);
 
 #endif

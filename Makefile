@@ -13,7 +13,8 @@ ft_sortings.c \
 ft_swap.c \
 ft_values.c \
 ft_sort_utils_2.c \
-ft_lis.c
+ft_lis.c \
+ft_heapsort.c
 
 MAIN = main.c
 
