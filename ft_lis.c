@@ -40,39 +40,84 @@ void	ft_find_chunk(t_stack *a)
 	}
 }
 
-void	ft_lis(t_stack *a)
+void	ft_fillarr(t_stack *a, int size)
 {
-	int	*arr;
 	int	i;
 	int	j;
-	int	k;
-	int	x;
 
-	arr = malloc(sizeof(int) * a->size);
-	i = 0;
-	x = 0;
-	while (i < a->size)
+	a->arr = malloc(sizeof(int) * (a->chunk_end - a->chunk_start - size + 1));
+	i = a->chunk_start + 1;
+	j = 0;
+	while (i < a->chunk_end - 1)
 	{
-		j = 0;
-		while (j < i)
+		if (a->stack[i] > a->stack[i + 1] || a->stack[i] < a->stack[i - 1])
 		{
-			if (a->stack[j] > a->stack[i])
-			{
-				k = 0;
-				while (k < x)
-				{
-					if (arr[k] == a->stack[j])
-						break ;
-					x++;
-				}
-				if (k == x)
-				{
-					arr[k] = a->stack[j];
-					x++;
-				}
-			}
+			a->arr[j] = a->stack[i];
 			j++;
 		}
 		i++;
 	}
+}
+
+void	ft_lis(t_stack *a, t_stack *b)
+{
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	popò;
+	int	temp;
+	int	temp2;
+	int	temp3;
+
+	i = 0;
+	while (i < a->size - 1)
+	{
+		j = i + 1;
+		temp = 0;
+		l = i + 1;
+		temp3 = 0;
+		while (j < a->size)
+		{
+			if (a->stack[j] > a->stack[i])
+			{
+				while (l <= j)
+				{
+					if (l == j)
+					{
+						temp++;
+						k2 = j;
+					}					
+					if (a->stack[j] < a->stack[l])
+					{
+						popò = j;
+						temp2 = temp;
+						break ;
+					}
+					l++;
+				}
+			}
+			j++;
+			if (j == a->size && l != j)
+			{
+				j = popò;
+				temp3 = temp;
+				temp = temp2;
+				k = k2;
+			}
+			if (temp > temp3)
+			{
+				temp3 = temp;
+				k = k2;
+			}
+		}
+		if (temp3 > a->chunk_size)
+		{
+			a->chunk_size = temp3;
+			a->chunk_start = i;
+			a->chunk_end = k;
+		}
+		i++;
+	}
+	ft_fillarr(a, size);
 }

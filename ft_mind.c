@@ -45,8 +45,9 @@ void	ft_mind(t_stack *a, t_stack *b)
 	int	index;
 	int	pos_a;
 
-	ft_find_chunk(a);
-	ft_pushinit(a, b);
+	//ft_find_chunk(a);
+	//ft_pushinit(a, b);
+	ft_lis(a, b);
 	while (b->size > 0)
 	{
 		//sleep(1);

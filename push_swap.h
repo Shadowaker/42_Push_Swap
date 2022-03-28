@@ -25,6 +25,8 @@ typedef struct s_stack
 	int	size;
 	int	chunk_start;
 	int	chunk_end;
+	int	*arr;
+	int	chunk_size;
 }	t_stack;
 
 void	show_stacks(t_stack *a, t_stack *b);
