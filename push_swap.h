@@ -71,6 +71,9 @@ int		ft_sigma(t_stack *a, t_stack *b, int min_a, int min_b);
 void	ft_o_set(t_stack *a, t_stack *b, int o);
 void	ft_o_set_a(t_stack *a);
 int		ft_check(t_stack *a, t_stack *b, int i);
-void	ft_find_chunk(t_stack *a);
+void	ft_lis(t_stack *a, t_stack *b);
+int		ft_lis_2(t_stack *a, int n, int *max_ref);
+void	ft_find_start(t_stack *a, int size);
+void	ft_fillarr(t_stack *a, int size);
 
 #endif

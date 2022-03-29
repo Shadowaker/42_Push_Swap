@@ -34,6 +34,7 @@ int	issorted(t_stack *arr)
 	}
 	return (1);
 }
+
 /*
 static void	sort_it(t_stack *a, t_stack *b)
 {
@@ -45,6 +46,7 @@ static void	sort_it(t_stack *a, t_stack *b)
 		ft_op(a, b);
 }
 */
+
 int	main(int argc, char **argv)
 {
 	t_stack	a;
