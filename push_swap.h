@@ -23,10 +23,10 @@ typedef struct s_stack
 {
 	int	*stack;
 	int	size;
-	int	chunk_start;
 	int	chunk_end;
 	int	*arr;
 	int	chunk_size;
+	int	*array;
 }	t_stack;
 
 void	show_stacks(t_stack *a, t_stack *b);
@@ -73,7 +73,6 @@ void	ft_o_set_a(t_stack *a);
 int		ft_check(t_stack *a, t_stack *b, int i);
 void	ft_lis(t_stack *a, t_stack *b);
 int		ft_lis_2(t_stack *a, int n, int *max_ref);
-void	ft_find_start(t_stack *a, int size);
-void	ft_fillarr(t_stack *a, int size);
+void	confront(t_stack *a);
 
 #endif

@@ -41,6 +41,8 @@ void	ft_mind(t_stack *a, t_stack *b)
 	ft_lis(a, b);
 	while (b->size > 0)
 	{
+		//show_stacks(a, b);
+		//sleep(1);
 		index = ft_check(a, b, -1);
 		pos_a = ft_return_index(a, ft_upper(a, b->stack[index]));
 		if (index < b->size / 2)
@@ -132,4 +134,5 @@ void	ft_mind(t_stack *a, t_stack *b)
 			write(1, "rra\n", ft_strlen("rra\n"));
 		}
 	}
+	show_stacks(a, b);
 }

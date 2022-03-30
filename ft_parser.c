@@ -97,6 +97,7 @@ t_stack	ft_parser(int size, char **aa)
 
 	arr.size = 0;
 	arr.chunk_size = 0;
+	arr.chunk_end = 1;
 	if (size > 1)
 	{
 		arr.size = ft_checker(size, aa);

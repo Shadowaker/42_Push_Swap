@@ -14,7 +14,8 @@ ft_swap.c \
 ft_values.c \
 ft_sort_utils_2.c \
 ft_lis.c \
-ft_heapsort.c
+ft_heapsort.c \
+ft_lis_utils.c
 
 MAIN = main.c
 
@@ -45,6 +46,10 @@ ex: $(NAME)
 	make clean
 	./push_swap 0 1 4 2112 13 58678 15 2 5 6 8 20 23 12 9 2424 "42 4945 17"
 
+ex2: $(NAME)
+	make clean
+	./push_swap 958 305 -153 277 677 -997 399 765 669 490 469 -451 491 4 -590 26 -495 56 -875 356 400 -722 -414 261 -890
+
 test: all
 	make clean
 
@@ -63,5 +68,6 @@ fclean: clean
 	make -C ./Libft/ fclean
 
 re: $(NAME)
+	make clean
 
 .PHONY: all clean fclean re

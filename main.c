@@ -34,11 +34,10 @@ int	issorted(t_stack *arr)
 	}
 	return (1);
 }
-
 /*
 static void	sort_it(t_stack *a, t_stack *b)
 {
-	if (a->size)
+	if (a->size > 50)
 	{
 		ft_mind(a, b);
 	}
