@@ -121,6 +121,7 @@ void	ft_mind(t_stack *a, t_stack *b)
 		ft_pa(a, b);
 		write(1, "pa\n", ft_strlen("pa\n"));
 	}
+	//show_stacks(a, b);
 	index = ft_return_index(a, ft_min(a));
 	if (index < a->size / 2)
 	{

@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:50:26 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/03/31 20:16:01 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/03/31 20:57:26 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,12 @@ void	ft_lis_lis(t_stack *a)
 		lis[i] = 10000;
 	i = 1;
 	k = -1;
-	while (i++ < a->size)
+	while (i < a->size)
 	{
 		inds[i] = s_and_r(lis, 0, i, a->stack[i]);
 		if (k < inds[i])
 			k = inds[i];
+		i++;
 	}
 	answ = malloc(sizeof(int) * (k + 1));
 	i = a->size - 1;
@@ -77,13 +78,14 @@ void	ft_lis_lis(t_stack *a)
 		}
 		i--;
 	}
-	a->chunk_size = k - tmp;
+	a->chunk_size = k;
 	int	j = tmp + 1;
 	int	l = 0;
 	a->arr = malloc((sizeof(int) * a->chunk_size));
-	while (j <= a->chunk_size)
+	while (l < a->chunk_size)
 	{
 		a->arr[l] = answ[j];
+		printf("%d - %d \n", a->arr[l], a->chunk_size);
 		j++;
 		l++;
 	}
