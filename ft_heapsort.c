@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 17:42:13 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/03/28 17:43:23 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/03/31 20:01:52 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,35 @@ void	ft_op(t_stack *a, t_stack *b)
 	{
 		ft_pa(a, b);
 		write(1, "pa\n", ft_strlen("pa\n"));
+	}
+}
+
+void	ft_3(t_stack *a)
+{
+	if (ft_return_index(a, ft_min(a)) == 0
+		&& ft_return_index(a, ft_max(a)) == 1)
+	{
+		ft_ra(a);
+		ft_sa(a);
+		ft_rra(a);
+		write(1, "ra\nsa\nrra\n", ft_strlen("ra\nsa\nrra\n"));
+	}
+	else if (ft_return_index(a, ft_min(a)) == 1
+		&& ft_return_index(a, ft_max(a)) == 2)
+	{
+		ft_sa(a);
+		write(1, "sa\n", 3);
+	}
+	else if (ft_return_index(a, ft_min(a)) == 2
+		&& ft_return_index(a, ft_max(a)) == 1)
+	{
+		ft_rra(a);
+		write(1, "rra\n", 4);
+	}
+	else if (ft_return_index(a, ft_min(a)) == 1
+		&& ft_return_index(a, ft_max(a)) == 0)
+	{
+		ft_ra(a);
+		write(1, "ra\n", 3);
 	}
 }

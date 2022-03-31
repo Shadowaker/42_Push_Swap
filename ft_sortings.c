@@ -43,17 +43,36 @@ static int	ft_check2(t_stack *a, t_stack *b, int i, int nofmoves)
 	int	temp;
 	int	index;
 	int	temp2;
+	int	j;
 
 	temp2 = nofmoves;
-	while (++i <= b->size)
+	index = -1;
+	while (++i < b->size)
 	{
+		j = ft_return_index(a, ft_lower(a, b->stack[i]));
 		k = ft_return_index(a, ft_upper(a, b->stack[i]));
-		if (i > k)
-			temp = a->size - k + 2;
-		else
+		if (j < k && i > j)
+		{
+			temp = a->size - k + 1;
+			a->offset = 1;
+		}
+		else if (j > k && i > k)
+		{
+			temp = a->size - j + 1;
+			a->offset = 0;
+		}
+		else if (j < k && i > k)
+		{
 			temp = b->size - i + 1;
+			a->offset = 1;
+		}
+		else
+		{
+			temp = b->size - i + 1;
+			a->offset = 0;
+		}
 		if (temp < nofmoves)
-			index = i - 1;
+			index = i;
 		if (temp < nofmoves)
 			nofmoves = temp;
 	}
@@ -68,17 +87,35 @@ int	ft_check(t_stack *a, t_stack *b, int i)
 	int	k;
 	int	index;
 	int	temp;
+	int	j;
 
 	nofmoves = a->size + b->size;
-	if (b->size == 2)
+	if (b->size <= 2)
 		return (0);
 	while (++i <= b->size / 2)
 	{
+		j = ft_return_index(a, ft_lower(a, b->stack[i]));
 		k = ft_return_index(a, ft_upper(a, b->stack[i]));
-		if (i < k)
+		if (j < k && i < j)
+		{
+			temp = j;
+			a->offset = 0;
+		}
+		else if (j > k && i < k)
+		{
 			temp = k;
-		else
+			a->offset = 1;
+		}
+		else if (j < k && i < j)
+		{
 			temp = i;
+			a->offset = 0;
+		}
+		else
+		{
+			temp = i;
+			a->offset = 1;
+		}
 		if (temp < nofmoves)
 			index = i;
 		if (temp < nofmoves)
@@ -86,5 +123,52 @@ int	ft_check(t_stack *a, t_stack *b, int i)
 	}
 	if (ft_check2(a, b, i - 1, nofmoves) != -1)
 		index = ft_check2(a, b, i - 1, nofmoves);
+	return (index);
+}
+
+int	ft_checkeroni(t_stack *a, t_stack *b, int i)
+{
+	int	nofmoves;
+	int	j;
+	int	k;
+	int	index;
+	int	temp;
+
+	nofmoves = a->size + b->size;
+	while (i <= b->size / 2 + 1)
+	{
+		j = ft_return_index(a, ft_lower(a, b->stack[i]));
+		k = ft_return_index(a, ft_upper(a, b->stack[i]));
+		if (j < k && i < j)
+			temp = j + 1;
+		else if (j > k && i < k)
+			temp = k;
+		else
+			temp = i;
+		if (temp < nofmoves)
+		{
+			nofmoves = temp;
+			index = i;
+		}
+		i++;
+	}
+	i--;
+	while (i <= b->size)
+	{
+		j = ft_return_index(a, ft_lower(a, b->stack[i]));
+		k = ft_return_index(a, ft_upper(a, b->stack[i]));
+		if (j < k && i > j)
+			temp = a->size - k + 2;
+		else if (j > k && i > k)
+			temp = a->size - j + 1;
+		else
+			temp = b->size - i + 1;
+		if (temp < nofmoves)
+		{
+			nofmoves = temp;
+			index = i - 1;
+		}
+		i++;
+	}
 	return (index);
 }

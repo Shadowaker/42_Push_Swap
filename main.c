@@ -53,10 +53,14 @@ int	main(int argc, char **argv)
 
 	if (argc > 1)
 	{
+		//printf("Starting...\n");
 		a = ft_parser(argc, argv);
+		//printf("Parsed...\n");
 		if (a.size != -1)
 		{
+			//printf("Creating B...\n");
 			b = create_it(a.size);
+			//printf("Starting mind...\n");
 			if (a.size > 1 && (issorted(&a) == 0))
 				ft_mind(&a, &b);
 			free(a.stack);
