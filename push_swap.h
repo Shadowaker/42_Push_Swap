@@ -26,8 +26,9 @@ typedef struct s_stack
 	int	chunk_end;
 	int	*arr;
 	int	chunk_size;
-	int	*array;
 	int	offset;
+	int	pos_a;
+	int	pos_b;
 }	t_stack;
 
 void	show_stacks(t_stack *a, t_stack *b);
@@ -73,7 +74,8 @@ void	ft_o_set(t_stack *a, t_stack *b, int o);
 void	ft_o_set_a(t_stack *a);
 int		ft_check(t_stack *a, t_stack *b, int i);
 void	ft_lis(t_stack *a, t_stack *b);
-int		ft_lis_2(t_stack *a, int n, int *max_ref);
 void	confront(t_stack *a);
+
+void	ft_optimal(t_stack *a, t_stack *b);
 
 #endif

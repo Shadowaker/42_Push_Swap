@@ -41,14 +41,19 @@ void	ft_mind(t_stack *a, t_stack *b)
 	ft_lis(a, b);
 	while (b->size > 0)
 	{
-		//show_stacks(a, b);
-		//sleep(1);
-		index = ft_check(a, b, -1);
+		show_stacks(a, b);
+		sleep(1);
+		//index = ft_check(a, b, -1);
+		ft_optimal(a, b);
+		index = a->pos_b;
+		pos_a = a->pos_a;
+
+		/*
 		if (a->offset == 1)
 			pos_a = ft_return_index(a, ft_upper(a, b->stack[index]));
 		else
-			pos_a = 1 + ft_return_index(a, ft_lower(a, b->stack[index]));
-		//printf("%d-----------%d\n", index, pos_a);
+			pos_a = 1 + ft_return_index(a, ft_lower(a, b->stack[index]));*/
+		printf("%d-----------%d\n", index, pos_a);
 		if (index < b->size / 2)
 		{
 			while (index > 0 && pos_a - index < a->size / 2 && pos_a > 0)

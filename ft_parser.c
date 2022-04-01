@@ -98,12 +98,15 @@ t_stack	ft_parser(int size, char **aa)
 	arr.size = 0;
 	arr.chunk_size = 0;
 	arr.chunk_end = 1;
+	arr.pos_a = 0;
+	arr.pos_b = 0;
 	if (size > 1)
 	{
 		arr.size = ft_checker(size, aa);
 		if ((arr.size != -1))
 		{
 			arr.stack = stack_init(size, aa, arr.size);
+			arr.arr = malloc(sizeof(int) * arr.size);
 			if (ft_validator(arr) == 1)
 			{
 				arr.size = -1;
