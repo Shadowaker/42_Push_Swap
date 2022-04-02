@@ -15,8 +15,12 @@
 void	ft_pushinit(t_stack *a, t_stack *b)
 {
 	int	j;
+	int	c;
+	int	i;
 
-	while (a->chunk_size != a->size)
+	i = 0;
+	c = a->size;
+	while (i < c)
 	{
 		j = 0;
 		while (j < a->chunk_size)
@@ -34,6 +38,7 @@ void	ft_pushinit(t_stack *a, t_stack *b)
 			ft_pb(a, b);
 			write(1, "pb\n", ft_strlen("pb\n"));
 		}
+		i++;
 	}
 }
 

@@ -43,16 +43,15 @@ void	ft_mind(t_stack *a, t_stack *b)
 	{
 		show_stacks(a, b);
 		sleep(1);
-		//index = ft_check(a, b, -1);
-		ft_optimal(a, b);
-		index = a->pos_b;
-		pos_a = a->pos_a;
+		index = ft_check(a, b, -1);
+		//ft_optimal(a, b);
+		//index = a->pos_b;
+		//pos_a = a->pos_a;
 
-		/*
 		if (a->offset == 1)
 			pos_a = ft_return_index(a, ft_upper(a, b->stack[index]));
 		else
-			pos_a = 1 + ft_return_index(a, ft_lower(a, b->stack[index]));*/
+			pos_a = 1 + ft_return_index(a, ft_lower(a, b->stack[index]));
 		printf("%d-----------%d\n", index, pos_a);
 		if (index < b->size / 2)
 		{
@@ -126,7 +125,8 @@ void	ft_mind(t_stack *a, t_stack *b)
 		ft_pa(a, b);
 		write(1, "pa\n", ft_strlen("pa\n"));
 	}
-	//show_stacks(a, b);
+	show_stacks(a, b);
+	sleep(10);
 	index = ft_return_index(a, ft_min(a));
 	if (index < a->size / 2)
 	{
@@ -144,5 +144,5 @@ void	ft_mind(t_stack *a, t_stack *b)
 			write(1, "rra\n", ft_strlen("rra\n"));
 		}
 	}
-	//show_stacks(a, b);
+	show_stacks(a, b);
 }

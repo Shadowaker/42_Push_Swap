@@ -67,7 +67,7 @@ int	ft_downpart(t_stack *arr, int min)
 void	ft_optimal(t_stack *a, t_stack *b)
 {
 	int	i;
-	int pos_a;
+	int	pos_a;
 	int pos_b;
 	int	j;
 	int nofmoves;
@@ -79,7 +79,7 @@ void	ft_optimal(t_stack *a, t_stack *b)
 	{
 		j = ft_return_index(b, ft_lower(b, a->stack[i]));
 		if (j == -1)
-			j = ft_return_index(b, ft_upper(b, a->stack[i]));
+			j = ft_return_index(b, ft_max(b));
 		if (j < (b->size / 2))
 		{
 			if (i > a->size / 2)
