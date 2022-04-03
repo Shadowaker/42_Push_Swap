@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <string.h>
+# include <limits.h>
 # include "Libft/libft.h"
 
 typedef struct s_stack
@@ -77,5 +78,6 @@ void	ft_lis(t_stack *a, t_stack *b);
 void	confront(t_stack *a);
 
 void	ft_optimal(t_stack *a, t_stack *b);
+int		ft_issorted360(t_stack *a);
 
 #endif

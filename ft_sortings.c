@@ -27,9 +27,14 @@ void	ft_pushinit(t_stack *a, t_stack *b)
 		{
 			if (a->stack[0] == a->arr[j])
 			{
+				if (ft_upper(a, b->stack[0]) == a->stack[0] && b->size > 0)
+				{
+					ft_pa(a, b);
+					ft_ra(a);
+					write(1, "pa\nra\n", ft_strlen("pa\nra\n"));
+				}
 				ft_ra(a);
 				write(1, "ra\n", ft_strlen("ra\n"));
-				break ;
 			}
 			j++;
 		}
@@ -38,6 +43,8 @@ void	ft_pushinit(t_stack *a, t_stack *b)
 			ft_pb(a, b);
 			write(1, "pb\n", ft_strlen("pb\n"));
 		}
+		if (ft_issorted360(a) == 1)
+			break ;
 		i++;
 	}
 }

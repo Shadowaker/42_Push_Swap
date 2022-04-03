@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:50:26 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/04/02 01:55:49 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/04/03 20:26:19 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_lis_lis(t_stack *a)
 	int	i;
 	int	k;
 	int	tmp;
-	//int	*answ;
 
 	lis = malloc(sizeof(int) * a->size * 5);
 	inds = malloc(sizeof(int) * a->size);
@@ -66,54 +65,30 @@ void	ft_lis_lis(t_stack *a)
 			k = inds[i];
 		i++;
 	}
-	//answ = malloc(sizeof(int) * (k + 1));
 	i = a->size - 1;
 	tmp = k;
-	int j = 0;
 	while (i >= 0)
 	{
 		if (inds[i] == tmp)
 		{
 			a->arr[tmp] = a->stack[i];
-			printf("culo %d - %d - %d\n", tmp, inds[i], a->arr[tmp]);
-			fflush(0);
+			//printf("culo %d - %d - %d\n", tmp, inds[i], a->arr[tmp]);
+			//fflush(0);
 			tmp--;
-			j++;
 		}
 		i--;
 	}
 	a->chunk_size = k + 1;
-
-	//int	j = tmp + 1;
-	//int	l = 0;
-	//int	m = 0;
-	//a->arr = malloc((sizeof(int) * a->chunk_size));
-	/*
-	while (l < a->chunk_size)
-	{
-		//a->arr[l] = answ[j];
-		printf("%d - %d - %d\n", a->arr[l], a->chunk_size, j);
-		fflush(0);
-		l++;
-	}*/
-	//sleep(10);
-	//free(lis);
-	//free(answ);
-	//free(inds);
+	free(lis);
+	free(inds);
 }
 
 void	ft_lis(t_stack *a, t_stack *b)
 {
 	int	size;
-	show_stack(a, "A\n");
+	//show_stack(a, "A\n");
 	size = 1;
 	ft_lis_lis(a);
-	int	i = 0;
-	while (i < a->chunk_size)
-	{
-		printf("%d\n", a->arr[i]);
-		i++;
-	}
 	//exit(0);
 	ft_pushinit(a, b);
 }
