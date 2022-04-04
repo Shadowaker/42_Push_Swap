@@ -97,7 +97,6 @@ t_stack	ft_parser(int size, char **aa)
 
 	arr.size = 0;
 	arr.chunk_size = 0;
-	arr.chunk_end = 1;
 	arr.pos_a = 0;
 	arr.pos_b = 0;
 	if (size > 1)
@@ -113,8 +112,6 @@ t_stack	ft_parser(int size, char **aa)
 				return (arr);
 			}
 		}
-		else
-			return (arr);
 	}
 	else
 		arr.size = -1;

@@ -17,6 +17,7 @@ t_stack	create_it(int size)
 	t_stack	arr;
 
 	arr.stack = ft_calloc(size, sizeof(int));
+	ft_memset(arr.stack, 0, size * sizeof(int));
 	arr.size = 0;
 	return (arr);
 }
@@ -63,6 +64,9 @@ int	main(int argc, char **argv)
 			free(b.stack);
 		}
 		else
-			write(1, "Error\n", ft_strlen("Error\n"));
+			write(1, "Error.\n", ft_strlen("Error.\n"));
 	}
+	else
+		write(1, "Error.\nNot enough arguments\n",
+			ft_strlen("Error.\nNot enough arguments\n"));
 }

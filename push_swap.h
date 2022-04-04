@@ -24,7 +24,6 @@ typedef struct s_stack
 {
 	int	*stack;
 	int	size;
-	int	chunk_end;
 	int	*arr;
 	int	chunk_size;
 	int	offset;
@@ -79,5 +78,7 @@ void	confront(t_stack *a);
 
 void	ft_optimal(t_stack *a, t_stack *b);
 int		ft_issorted360(t_stack *a);
+int		*balloc(int size, int val);
+int		val_id(t_stack *a);
 
 #endif

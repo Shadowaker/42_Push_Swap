@@ -80,20 +80,56 @@ void	ft_optimal(t_stack *a, t_stack *b)
 		j = ft_return_index(a, ft_upper(a, b->stack[i]));
 		if (j == -1)
 			j = ft_return_index(a, ft_min(a));
-		if (j < (a->size / 2))
+		if (j > a->size / 2)
 		{
 			if (i > b->size / 2)
 			{
-				if (nofmoves > ((a->size - j) + (b->size - i)))
+				if (j > i)
 				{
-					nofmoves = (a->size - j) + (b->size - i);
-					pos_a = j;
-					pos_b = i;
+					if (nofmoves > (b->size - i))
+					{
+						nofmoves = b->size - i;
+						pos_a = j;
+						pos_b = i;
+					}
+				}
+				else
+				{
+					if (nofmoves > b->size - j)
+					{
+						nofmoves = a->size - j;
+						pos_a = j;
+						pos_b = i;
+					}
 				}
 			}
 			else
 			{
-				if (i - j > b->size)
+				if (j - i > a->size / 2)
+				{
+					if (nofmoves > j)
+					{
+						nofmoves = j;
+						pos_a = j;
+						pos_b = i;
+					}
+				}
+				else
+				{
+					if (nofmoves > i + (a->size - j))
+					{
+						nofmoves = i + (a->size - j);
+						pos_a = j;
+						pos_b = i;
+					}
+				}
+			}
+		}
+		else
+		{
+			if (i > b->size / 2)
+			{
+				if (i - j > a->size / 2)
 				{
 					if (nofmoves > i)
 					{
@@ -112,14 +148,28 @@ void	ft_optimal(t_stack *a, t_stack *b)
 					}
 				}
 			}
-		}
-		else
-			if (nofmoves > j + i)
+			else
 			{
-				nofmoves = j + i;
-				pos_a = j;
-				pos_b = i;
+				if (j > i)
+				{
+					if (nofmoves > j)
+					{
+						nofmoves = j;
+						pos_a = j;
+						pos_b = i;
+					}
+				}
+				else
+				{
+					if (nofmoves > i)
+					{
+						nofmoves = i;
+						pos_a = j;
+						pos_b = i;
+					}
+				}
 			}
+		}
 		i++;
 	}
 	a->pos_a = pos_a;

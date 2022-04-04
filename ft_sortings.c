@@ -12,6 +12,22 @@
 
 #include "push_swap.h"
 
+int	ft_min_(int *arr, int size)
+{
+	int	i;
+	int	tmp;
+
+	i = 0;
+	tmp = arr[0];
+	while (i < size)
+	{
+		if (arr[i] < tmp)
+			tmp = arr[i];
+		i++;
+	}
+	return (tmp);
+}
+
 void	ft_pushinit(t_stack *a, t_stack *b)
 {
 	int	j;
@@ -30,11 +46,12 @@ void	ft_pushinit(t_stack *a, t_stack *b)
 				if (ft_upper(a, b->stack[0]) == a->stack[0] && b->size > 0)
 				{
 					ft_pa(a, b);
-					ft_ra(a);
-					write(1, "pa\nra\n", ft_strlen("pa\nra\n"));
+					ft_rr(a, b);
+					write(1, "pa\nrr\n", ft_strlen("pa\nrr\n"));
 				}
-				ft_ra(a);
-				write(1, "ra\n", ft_strlen("ra\n"));
+				ft_rr(a, b);
+				write(1, "rr\n", ft_strlen("rr\n"));
+				break ;
 			}
 			j++;
 		}

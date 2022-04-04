@@ -42,6 +42,7 @@ void	ft_mind(t_stack *a, t_stack *b)
 
 	ft_lis(a, b);
 	test_newmind(a, b);
+
 	/*
 	while (b->size > 0)
 	{
@@ -51,6 +52,7 @@ void	ft_mind(t_stack *a, t_stack *b)
 		ft_optimal(a, b);
 		index = a->pos_b;
 		pos_a = a->pos_a;
+
 
 		if (a->offset == 1)
 			pos_a = ft_return_index(a, ft_upper(a, b->stack[index]));
@@ -133,7 +135,7 @@ void	ft_mind(t_stack *a, t_stack *b)
 	//show_stacks(a, b);
 	//sleep(10);
 	index = ft_return_index(a, ft_min(a));
-	if (index < a->size / 2)
+	if (index <= a->size / 2 + 1)
 	{
 		while (issorted(a) != 1)
 		{
@@ -148,8 +150,8 @@ void	ft_mind(t_stack *a, t_stack *b)
 			ft_rra(a);
 			write(1, "rra\n", ft_strlen("rra\n"));
 		}
-	}*/
-	//show_stacks(a, b);
+	}
+	//show_stacks(a, b);*/
 }
 
 
@@ -167,7 +169,7 @@ void	test_newmind(t_stack *a, t_stack *b)
 		index = a->pos_b;
 		pos_a = a->pos_a;
 		//printf("$index: %d - pos_a: %d - a->size: %d - b->size: %d$\n", index, pos_a, a->size, b->size);
-		if (index <= b->size / 2 && pos_a <= a->size / 2)
+		if (index <= b->size / 2 + 1 && pos_a <= a->size / 2 + 1)
 		{
 			while (index > 0 && pos_a > 0)
 			{
@@ -213,9 +215,9 @@ void	test_newmind(t_stack *a, t_stack *b)
 		}
 		else
 		{
-			if (index > b->size / 2 && pos_a <= a->size / 2)
+			if (index > b->size / 2 && pos_a <= a->size / 2 + 1)
 			{
-				if (index - pos_a <= b->size / 2)
+				if (index - pos_a <= b->size / 2 + 1)
 				{
 					while (index > 0 && pos_a > 0)
 					{
@@ -253,9 +255,9 @@ void	test_newmind(t_stack *a, t_stack *b)
 					}
 				}
 			}
-			else if (index <= b->size / 2 && pos_a > a->size / 2)
+			else
 			{
-				if (pos_a - index <= a->size / 2)
+				if (pos_a - index <= a->size / 2 + 1)
 				{
 					while (index > 0 && pos_a > 0)
 					{
@@ -300,7 +302,7 @@ void	test_newmind(t_stack *a, t_stack *b)
 	//show_stacks(a, b);
 	//sleep(10);
 	index = ft_return_index(a, ft_min(a));
-	if (index < a->size / 2)
+	if (index <= a->size / 2 + 1)
 	{
 		while (issorted(a) != 1)
 		{
