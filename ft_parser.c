@@ -105,7 +105,7 @@ t_stack	ft_parser(int size, char **aa)
 		if ((arr.size != -1))
 		{
 			arr.stack = stack_init(size, aa, arr.size);
-			arr.arr = calloc(arr.size, sizeof(int));
+			arr.arr = calloc(arr.size + 1, sizeof(int));
 			if (ft_validator(arr) == 1)
 			{
 				arr.size = -1;
