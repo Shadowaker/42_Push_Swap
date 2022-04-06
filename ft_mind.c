@@ -217,7 +217,7 @@ void	test_newmind(t_stack *a, t_stack *b)
 		{
 			if (index > b->size / 2 && pos_a <= a->size / 2 + 1)
 			{
-				if (index - pos_a <= b->size / 2 + 1)
+				if (index - pos_a < b->size - index)
 				{
 					while (index > 0 && pos_a > 0)
 					{
@@ -237,6 +237,28 @@ void	test_newmind(t_stack *a, t_stack *b)
 						ft_ra(a);
 						write(1, "ra\n ", ft_strlen("ra\n"));
 						pos_a--;
+					}
+				}
+				else if (pos_a + b->size - index >= a->size / 2 + 1)
+				{
+					while (index < b->size && pos_a < a->size)
+					{
+						ft_rrr(a, b);
+						write(1, "rrr\n", ft_strlen("rrr\n"));
+						index++;
+						pos_a++;
+					}
+					while (index < b->size)
+					{
+						ft_rrb(b);
+						write(1, "rrb\n ", ft_strlen("rrb\n"));
+						index++;
+					}
+					while (pos_a < a->size)
+					{
+						ft_rra(a);
+						write(1, "rra\n ", ft_strlen("rra\n"));
+						pos_a++;
 					}
 				}
 				else
@@ -277,6 +299,28 @@ void	test_newmind(t_stack *a, t_stack *b)
 						ft_ra(a);
 						write(1, "ra\n ", ft_strlen("ra\n"));
 						pos_a--;
+					}
+				}
+				else if (index + a->size - pos_a >= b->size / 2 + 1)
+				{
+					while (index < b->size && pos_a < a->size)
+					{
+						ft_rrr(a, b);
+						write(1, "rrr\n", ft_strlen("rrr\n"));
+						index++;
+						pos_a++;
+					}
+					while (index < b->size)
+					{
+						ft_rrb(b);
+						write(1, "rrb\n ", ft_strlen("rrb\n"));
+						index++;
+					}
+					while (pos_a < a->size)
+					{
+						ft_rra(a);
+						write(1, "rra\n ", ft_strlen("rra\n"));
+						pos_a++;
 					}
 				}
 				else
