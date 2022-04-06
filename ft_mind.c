@@ -239,7 +239,7 @@ void	test_newmind(t_stack *a, t_stack *b)
 						pos_a--;
 					}
 				}
-				else if (pos_a + b->size - index >= a->size / 2 + 1)
+				else if (a->size - (pos_a + b->size - index) < pos_a)
 				{
 					while (index < b->size && pos_a < a->size)
 					{
@@ -279,7 +279,7 @@ void	test_newmind(t_stack *a, t_stack *b)
 			}
 			else
 			{
-				if (pos_a - index <= a->size / 2 + 1)
+				if (pos_a - index < a->size - pos_a)
 				{
 					while (index > 0 && pos_a > 0)
 					{
@@ -301,7 +301,7 @@ void	test_newmind(t_stack *a, t_stack *b)
 						pos_a--;
 					}
 				}
-				else if (index + a->size - pos_a >= b->size / 2 + 1)
+				else if (b->size - (index + a->size - pos_a) < index)
 				{
 					while (index < b->size && pos_a < a->size)
 					{

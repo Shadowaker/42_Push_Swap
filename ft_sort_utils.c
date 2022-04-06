@@ -122,7 +122,25 @@ void	ft_optimal(t_stack *a, t_stack *b)
 				//}
 				//else
 				//{
-					if (nofmoves > i + (a->size - j))
+					if (j - i < a->size - j)
+					{
+						if (nofmoves > j)
+						{
+							nofmoves = j;
+							pos_a = j;
+							pos_b = i;
+						}
+					}
+					else if (b->size - (i + a->size - j) < i)
+					{
+						if (nofmoves > b->size - i)
+						{
+							nofmoves = b->size - i;
+							pos_a = j;
+							pos_b = i;
+						}
+					}
+					else if (nofmoves > i + (a->size - j))
 					{
 						nofmoves = i + (a->size - j);
 						pos_a = j;
@@ -146,11 +164,20 @@ void	ft_optimal(t_stack *a, t_stack *b)
 				//}
 				//else
 				//{
-					if (i - j < b->size - i  + off)
+					if (i - j < b->size - i)
 					{
 						if (nofmoves > i)
 						{
 							nofmoves = i;
+							pos_a = j;
+							pos_b = i;
+						}
+					}
+					else if (a->size - (j + b->size - i) < j)
+					{
+						if (nofmoves > a->size - j)
+						{
+							nofmoves = a->size - j;
 							pos_a = j;
 							pos_b = i;
 						}
