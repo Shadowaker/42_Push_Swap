@@ -12,22 +12,6 @@
 
 #include "push_swap.h"
 
-int	ft_min_(int *arr, int size)
-{
-	int	i;
-	int	tmp;
-
-	i = 0;
-	tmp = arr[0];
-	while (i < size)
-	{
-		if (arr[i] < tmp)
-			tmp = arr[i];
-		i++;
-	}
-	return (tmp);
-}
-
 void	ft_pushinit(t_stack *a, t_stack *b)
 {
 	int	j;
@@ -152,52 +136,5 @@ int	ft_check(t_stack *a, t_stack *b, int i)
 	}
 	if (ft_check2(a, b, i - 1, nofmoves) != -1)
 		index = ft_check2(a, b, i - 1, nofmoves);
-	return (index);
-}
-
-int	ft_checkeroni(t_stack *a, t_stack *b, int i)
-{
-	int	nofmoves;
-	int	j;
-	int	k;
-	int	index;
-	int	temp;
-
-	nofmoves = a->size + b->size;
-	while (i <= b->size / 2 + 1)
-	{
-		j = ft_return_index(a, ft_lower(a, b->stack[i]));
-		k = ft_return_index(a, ft_upper(a, b->stack[i]));
-		if (j < k && i < j)
-			temp = j + 1;
-		else if (j > k && i < k)
-			temp = k;
-		else
-			temp = i;
-		if (temp < nofmoves)
-		{
-			nofmoves = temp;
-			index = i;
-		}
-		i++;
-	}
-	i--;
-	while (i <= b->size)
-	{
-		j = ft_return_index(a, ft_lower(a, b->stack[i]));
-		k = ft_return_index(a, ft_upper(a, b->stack[i]));
-		if (j < k && i > j)
-			temp = a->size - k + 2;
-		else if (j > k && i > k)
-			temp = a->size - j + 1;
-		else
-			temp = b->size - i + 1;
-		if (temp < nofmoves)
-		{
-			nofmoves = temp;
-			index = i - 1;
-		}
-		i++;
-	}
 	return (index);
 }

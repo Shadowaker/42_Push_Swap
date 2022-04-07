@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 19:15:30 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/04/03 18:10:28 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/04/07 17:09:11 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	ft_issorted360(t_stack *a)
 	if (a->stack[0] < a->stack[i - 1])
 		return (0);
 	return (1);
-
 }
 
 int	ft_sigma(t_stack *a, t_stack *b, int min_a, int min_b)

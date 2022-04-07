@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:50:26 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/04/04 19:22:54 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:12:38 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	ft_lis_lis(t_stack *a)
 	int	k;
 	int	tmp;
 
-	lis = malloc(sizeof(int) * a->size * 5);
-	ft_memset(lis, 10000, a->size * 5);
-	inds = malloc(sizeof(int) * a->size);
-	ft_memset(inds, 0, a->size * 5);
+	lis = malloc(sizeof(int) * (a->size * 2));
+	ft_memset(lis, 10000, a->size * 2);
+	inds = malloc(sizeof(int) * (a->size + 1));
+	ft_memset(inds, 0, a->size + 1);
 	inds[0] = 0;
 	lis[0] = a->stack[0];
 	//i = 1;

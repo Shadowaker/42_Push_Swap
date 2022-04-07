@@ -35,17 +35,14 @@ int	issorted(t_stack *arr)
 	}
 	return (1);
 }
-/*
+
 static void	sort_it(t_stack *a, t_stack *b)
 {
-	if (a->size > 50)
-	{
+	if (a->size > 3)
 		ft_mind(a, b);
-	}
 	else
-		ft_op(a, b);
+		ft_3(a);
 }
-*/
 
 int	main(int argc, char **argv)
 {
@@ -59,7 +56,7 @@ int	main(int argc, char **argv)
 		{
 			b = create_it(a.size);
 			if (a.size > 1 && (issorted(&a) == 0))
-				ft_mind(&a, &b);
+				sort_it(&a, &b);
 			free(a.stack);
 			free(b.stack);
 		}

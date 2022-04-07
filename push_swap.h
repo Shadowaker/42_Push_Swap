@@ -51,6 +51,7 @@ void	ft_push_down(t_stack *arr, int n);
 void	ft_push_up(t_stack *arr, int n);
 void	ft_op(t_stack *a, t_stack *b);
 void	ft_heapsort(t_stack *a, t_stack *b);
+void	ft_3(t_stack *a);
 
 t_stack	ft_parser(int size, char **aa);
 t_stack	create_it(int size);
@@ -61,9 +62,6 @@ int		ft_min(t_stack *arr);
 int		ft_max(t_stack *arr);
 int		ft_isint(char *c);
 int		ft_return_index(t_stack *arr, int n);
-int		ft_count(t_stack *arr, int start);
-int		ft_upperpart(t_stack *arr, int min);
-int		ft_downpart(t_stack *arr, int min);
 
 void	ft_mind(t_stack *a, t_stack *b);
 void	ft_push_both_up(t_stack *a, t_stack *b, int off);
@@ -74,7 +72,6 @@ void	ft_o_set(t_stack *a, t_stack *b, int o);
 void	ft_o_set_a(t_stack *a);
 int		ft_check(t_stack *a, t_stack *b, int i);
 void	ft_lis(t_stack *a, t_stack *b);
-void	confront(t_stack *a);
 
 void	ft_optimal(t_stack *a, t_stack *b);
 int		ft_issorted360(t_stack *a);
