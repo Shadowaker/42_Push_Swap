@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:54:56 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/02/17 17:56:21 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/04/08 22:44:12 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*	Remove the first character to the start of the string.
 *	Whithout deleting the first element of the string.*/
 
-char	*ft_strremove(char	*s, int	i)
+char	*ft_strremove(char	*s, int i)
 {
 	char	*s2;
 	int		j;
