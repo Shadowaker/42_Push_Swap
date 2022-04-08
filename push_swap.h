@@ -33,6 +33,7 @@ typedef struct s_stack
 
 void	show_stacks(t_stack *a, t_stack *b);
 void	show_stack(t_stack *arr, char *aname);
+void	error_handler(int error);
 
 void	ft_swap(int *a, int *b);
 void	ft_sa(t_stack *a, int bool);
@@ -63,15 +64,19 @@ int		ft_max(t_stack *arr);
 int		ft_isint(char *c);
 int		ft_return_index(t_stack *arr, int n);
 
-void	ft_mind(t_stack *a, t_stack *b);
+void	ft_mind(t_stack *a, t_stack *b, int off);
 void	ft_pushinit(t_stack *a, t_stack *b);
-void	ft_op(t_stack *a, t_stack *b);
-void	ft_heapsort(t_stack *a, t_stack *b);
 void	ft_basic_algorithm(t_stack *a);
-int		ft_check(t_stack *a, t_stack *b, int i);
+void	ft_advanced_algorithm(t_stack *a, t_stack *b);
 
 void	ft_lis(t_stack *a, t_stack *b);
 void	ft_optimal(t_stack *a, t_stack *b);
+int		ft_filter_1(t_stack *a, t_stack *b, int i, int nofmoves);
+int		ft_filter_2(t_stack *a, t_stack *b, int i, int nofmoves);
+void	ft_index_upper(t_stack *a, t_stack *b, int index, int pos_a);
+void	ft_pos_upper(t_stack *a, t_stack *b, int index, int pos_a);
+void	ft_pos_upper_2(t_stack *a, t_stack *b, int index, int pos_a);
+void	ft_pos_upper_3(t_stack *a, t_stack *b, int index, int pos_a);
 int		*balloc(int size, int val);
 int		val_id(t_stack *a);
 

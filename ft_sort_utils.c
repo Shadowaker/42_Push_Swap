@@ -12,91 +12,78 @@
 
 #include "push_swap.h"
 
-void	ft_optimal(t_stack *a, t_stack *b)
+static int	ft_both_upper_half(t_stack *a, t_stack *b, int i, int nofmoves)
 {
-	int	i;
-	int	pos_a;
-	int	pos_b;
 	int	j;
-	int	nofmoves;
 
-	i = 0;
-	pos_a = 0;
-	pos_b = 0;
-	nofmoves = a->size + b->size;
-	while (i < b->size)
+	j = ft_return_index(a, ft_upper(a, b->stack[i]));
+	if (j == -1)
+		j = ft_return_index(a, ft_min(a));
+	if (a->size - j > b->size - i)
 	{
-		j = ft_return_index(a, ft_upper(a, b->stack[i]));
-		if (j == -1)
-			j = ft_return_index(a, ft_min(a));
-		if (j > a->size / 2)
-		{
-			if (i > b->size / 2)
-			{
-				if (a->size - j > b->size - i)
-				{
-					if (nofmoves > (a->size - j))
-					{
-						nofmoves = a->size - j;
-						pos_a = j;
-						pos_b = i;
-					}
-				}
-				else
-				{
-					if (nofmoves > b->size - i)
-					{
-						nofmoves = b->size - i;
-						pos_a = j;
-						pos_b = i;
-					}
-				}
-			}
-			else
-			{
-				if (nofmoves > i + (a->size - j))
-				{
-					nofmoves = i + (a->size - j);
-					pos_a = j;
-					pos_b = i;
-				}
-			}
-		}
-		else
-		{
-			if (i > b->size / 2)
-			{
-				if (nofmoves > j + (b->size - i))
-				{
-					nofmoves = j + (b->size - i);
-					pos_a = j;
-					pos_b = i;
-				}
-			}
-			else
-			{
-				if (j > i)
-				{
-					if (nofmoves > j)
-					{
-						nofmoves = j;
-						pos_a = j;
-						pos_b = i;
-					}
-				}
-				else
-				{
-					if (nofmoves > i)
-					{
-						nofmoves = i;
-						pos_a = j;
-						pos_b = i;
-					}
-				}
-			}
-		}
-		i++;
+		if (nofmoves > (a->size - j))
+			nofmoves = a->size - j;
 	}
-	a->pos_a = pos_a;
-	a->pos_b = pos_b;
+	else
+	{
+		if (nofmoves > b->size - i)
+			nofmoves = b->size - i;
+	}
+	return (nofmoves);
+}
+
+static int	ft_both_lower_half(t_stack *a, t_stack *b, int i, int nofmoves)
+{
+	int	j;
+
+	j = ft_return_index(a, ft_upper(a, b->stack[i]));
+	if (j == -1)
+		j = ft_return_index(a, ft_min(a));
+	if (j > i)
+	{
+		if (nofmoves > j)
+		{
+			nofmoves = j;
+		}
+	}
+	else
+	{
+		if (nofmoves > i)
+		{
+			nofmoves = i;
+		}
+	}
+	return (nofmoves);
+}
+
+int	ft_filter_1(t_stack *a, t_stack *b, int i, int nofmoves)
+{
+	int	j;
+	int	tmp;
+
+	tmp = nofmoves;
+	j = ft_return_index(a, ft_upper(a, b->stack[i]));
+	if (j == -1)
+		j = ft_return_index(a, ft_min(a));
+	if (i > b->size / 2)
+		tmp = ft_both_upper_half(a, b, i, nofmoves);
+	else
+		tmp = i + (a->size - j);
+	return (tmp);
+}
+
+int	ft_filter_2(t_stack *a, t_stack *b, int i, int nofmoves)
+{
+	int	j;
+	int	tmp;
+
+	tmp = nofmoves;
+	j = ft_return_index(a, ft_upper(a, b->stack[i]));
+	if (j == -1)
+		j = ft_return_index(a, ft_min(a));
+	if (i > b->size / 2)
+		tmp = j + (b->size - i);
+	else
+		tmp = ft_both_lower_half(a, b, i, nofmoves);
+	return (tmp);
 }

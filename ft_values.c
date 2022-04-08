@@ -98,6 +98,7 @@ int	ft_max(t_stack *arr)
 	return (tmp);
 }
 
+/* Return index of passed number */
 int	ft_return_index(t_stack *arr, int n)
 {
 	int	i;

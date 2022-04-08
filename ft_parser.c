@@ -44,7 +44,7 @@ static int	*stack_init(int size, char **aa, int asize)
 
 	res = (int *) malloc(sizeof(int) * asize);
 	if (!res)
-		return (NULL);
+		error_handler(2);
 	i = 1;
 	k = 0;
 	while (i < size)
@@ -106,6 +106,8 @@ t_stack	ft_parser(int size, char **aa)
 		{
 			arr.stack = stack_init(size, aa, arr.size);
 			arr.arr = calloc(arr.size + 1, sizeof(int));
+			if (!arr.arr)
+				error_handler(2);
 			if (ft_validator(arr) == 1)
 			{
 				arr.size = -1;

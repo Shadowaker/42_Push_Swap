@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+void	error_handler(int error)
+{
+	if (error == 0)
+		write(1, "Error.\n", ft_strlen("Error.\n"));
+	else if (error == 1)
+		write(1, "Error.\nNot enough arguments\n",
+			ft_strlen("Error.\nNot enough arguments\n"));
+	else if (error == 2)
+		write(1, "Error.\nMalloc error: not enough memory\n",
+			ft_strlen("Error.\nMalloc error: not enough memory\n"));
+	exit(0);
+}
+
 t_stack	create_it(int size)
 {
 	t_stack	arr;
@@ -38,10 +51,15 @@ int	issorted(t_stack *arr)
 
 static void	sort_it(t_stack *a, t_stack *b)
 {
-	if (a->size > 3)
-		ft_mind(a, b);
-	else
-		ft_basic_algorithm(a);
+	if (issorted(a) == 0)
+	{
+		if (a->size > 7)
+			ft_mind(a, b, 1);
+		else if (a->size > 3)
+			ft_advanced_algorithm(a, b);
+		else
+			ft_basic_algorithm(a);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -57,13 +75,13 @@ int	main(int argc, char **argv)
 			b = create_it(a.size);
 			if (a.size > 1 && (issorted(&a) == 0))
 				sort_it(&a, &b);
+			free(a.arr);
 			free(a.stack);
 			free(b.stack);
 		}
 		else
-			write(1, "Error.\n", ft_strlen("Error.\n"));
+			error_handler(0);
 	}
 	else
-		write(1, "Error.\nNot enough arguments\n",
-			ft_strlen("Error.\nNot enough arguments\n"));
+		error_handler(1);
 }
