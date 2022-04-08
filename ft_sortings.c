@@ -31,19 +31,14 @@ void	ft_pushinit(t_stack *a, t_stack *b)
 				{
 					ft_pa(a, b);
 					ft_rr(a, b);
-					write(1, "pa\nrr\n", ft_strlen("pa\nrr\n"));
 				}
 				ft_rr(a, b);
-				write(1, "rr\n", ft_strlen("rr\n"));
 				break ;
 			}
 			j++;
 		}
 		if (j == a->chunk_size)
-		{
 			ft_pb(a, b);
-			write(1, "pb\n", ft_strlen("pb\n"));
-		}
 		if (ft_issorted360(a) == 1)
 			break ;
 		i++;

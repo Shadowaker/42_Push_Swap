@@ -35,27 +35,27 @@ void	show_stacks(t_stack *a, t_stack *b);
 void	show_stack(t_stack *arr, char *aname);
 
 void	ft_swap(int *a, int *b);
-void	ft_sa(t_stack *a);
-void	ft_sb(t_stack *b);
+void	ft_sa(t_stack *a, int bool);
+void	ft_sb(t_stack *b, int bool);
 void	ft_ss(t_stack *a, t_stack *b);
 void	ft_pa(t_stack *a, t_stack *b);
 void	ft_pb(t_stack *a, t_stack *b);
-void	ft_ra(t_stack *a);
-void	ft_rb(t_stack *b);
+void	ft_ra(t_stack *a, int bool);
+void	ft_rb(t_stack *b, int bool);
 void	ft_rr(t_stack *a, t_stack *b);
-void	ft_rra(t_stack *a);
-void	ft_rrb(t_stack *b);
+void	ft_rra(t_stack *a, int bool);
+void	ft_rrb(t_stack *b, int bool);
 void	ft_rrr(t_stack *a, t_stack *b);
 
 void	ft_push_down(t_stack *arr, int n);
 void	ft_push_up(t_stack *arr, int n);
-void	ft_op(t_stack *a, t_stack *b);
-void	ft_heapsort(t_stack *a, t_stack *b);
-void	ft_3(t_stack *a);
+void	ft_push_both_up(t_stack *a, t_stack *b, int off);
+void	ft_push_both_down(t_stack *a, t_stack *b, int off, int o);
 
 t_stack	ft_parser(int size, char **aa);
 t_stack	create_it(int size);
 int		issorted(t_stack *arr);
+int		ft_issorted360(t_stack *a);
 int		ft_upper(t_stack *arr, int n);
 int		ft_lower(t_stack *arr, int n);
 int		ft_min(t_stack *arr);
@@ -64,17 +64,14 @@ int		ft_isint(char *c);
 int		ft_return_index(t_stack *arr, int n);
 
 void	ft_mind(t_stack *a, t_stack *b);
-void	ft_push_both_up(t_stack *a, t_stack *b, int off);
-void	ft_push_both_down(t_stack *a, t_stack *b, int off, int o);
 void	ft_pushinit(t_stack *a, t_stack *b);
-int		ft_sigma(t_stack *a, t_stack *b, int min_a, int min_b);
-void	ft_o_set(t_stack *a, t_stack *b, int o);
-void	ft_o_set_a(t_stack *a);
+void	ft_op(t_stack *a, t_stack *b);
+void	ft_heapsort(t_stack *a, t_stack *b);
+void	ft_basic_algorithm(t_stack *a);
 int		ft_check(t_stack *a, t_stack *b, int i);
-void	ft_lis(t_stack *a, t_stack *b);
 
+void	ft_lis(t_stack *a, t_stack *b);
 void	ft_optimal(t_stack *a, t_stack *b);
-int		ft_issorted360(t_stack *a);
 int		*balloc(int size, int val);
 int		val_id(t_stack *a);
 

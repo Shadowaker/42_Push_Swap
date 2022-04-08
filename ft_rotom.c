@@ -19,8 +19,7 @@ void	ft_push_down(t_stack *arr, int n)
 	i = 0;
 	while (i < n)
 	{
-		ft_rra(arr);
-		write(1, "rra\n", ft_strlen("rra\n"));
+		ft_rra(arr, 1);
 		i++;
 	}
 }
@@ -32,8 +31,7 @@ void	ft_push_up(t_stack *arr, int n)
 	i = 0;
 	while (i < n)
 	{
-		ft_ra(arr);
-		write(1, "ra\n", ft_strlen("ra\n"));
+		ft_ra(arr, 1);
 		i++;
 	}
 }
@@ -46,7 +44,6 @@ void	ft_push_both_up(t_stack *a, t_stack *b, int off)
 	while (i < off)
 	{
 		ft_rr(a, b);
-		write(1, "rr\n", ft_strlen("rr\n"));
 		i++;
 	}
 }
@@ -64,7 +61,6 @@ void	ft_push_both_down(t_stack *a, t_stack *b, int off, int o)
 	while (i <= noff)
 	{
 		ft_rrr(a, b);
-		write(1, "rrr\n", ft_strlen("rrr\n"));
 		i++;
 	}
 }

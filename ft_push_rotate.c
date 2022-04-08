@@ -30,6 +30,7 @@ void	ft_pa(t_stack *a, t_stack *b)
 			i++;
 		}
 		b->size -= 1;
+		write(1, "pa\n", ft_strlen("pa\n"));
 	}
 }
 
@@ -51,10 +52,11 @@ void	ft_pb(t_stack *a, t_stack *b)
 			i++;
 		}
 		a->size -= 1;
+		write(1, "pb\n", ft_strlen("pb\n"));
 	}
 }
 
-void	ft_ra(t_stack *a)
+void	ft_ra(t_stack *a, int bool)
 {
 	int		i;
 	int		tmp;
@@ -69,10 +71,12 @@ void	ft_ra(t_stack *a)
 			i++;
 		}
 		a->stack[i - 1] = tmp;
+		if (bool == 1)
+			write(1, "ra\n", ft_strlen("ra\n"));
 	}
 }
 
-void	ft_rb(t_stack *b)
+void	ft_rb(t_stack *b, int bool)
 {
 	int		i;
 	int		tmp;
@@ -87,11 +91,14 @@ void	ft_rb(t_stack *b)
 			i++;
 		}
 		b->stack[i - 1] = tmp;
+		if (bool == 1)
+			write(1, "rb\n", ft_strlen("rb\n"));
 	}
 }
 
 void	ft_rr(t_stack *a, t_stack *b)
 {
-	ft_ra(a);
-	ft_rb(b);
+	ft_ra(a, 0);
+	ft_rb(b, 0);
+	write(1, "rr\n", ft_strlen("rr\n"));
 }

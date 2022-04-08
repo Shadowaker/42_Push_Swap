@@ -12,27 +12,6 @@
 
 #include "push_swap.h"
 
-void	ft_thinker_2(t_stack *a, t_stack *b, int sigma, int o)
-{
-	int	off;
-
-	if (o == 0)
-		off = ft_return_index(b, ft_min(b));
-	else
-		off = ft_return_index(a, ft_min(a));
-	if (sigma == 0)
-		ft_push_both_up(a, b, off);
-	else if (sigma == 1)
-		ft_push_both_down(a, b, off, o);
-	else if (sigma > 1)
-	{
-		ft_o_set(a, b, 0);
-		ft_o_set_a(a);
-		return ;
-	}
-	ft_o_set(a, b, o);
-}
-
 void	ft_mind(t_stack *a, t_stack *b)
 {
 	int	index;
@@ -49,20 +28,17 @@ void	ft_mind(t_stack *a, t_stack *b)
 			while (index > 0 && pos_a > 0)
 			{
 				ft_rr(a, b);
-				write(1, "rr\n", ft_strlen("rr\n"));
 				index--;
 				pos_a--;
 			}
 			while (index > 0)
 			{
-				ft_rb(b);
-				write(1, "rb\n ", ft_strlen("rb\n"));
+				ft_rb(b, 1);
 				index--;
 			}
 			while (pos_a > 0)
 			{
-				ft_ra(a);
-				write(1, "ra\n ", ft_strlen("ra\n"));
+				ft_ra(a, 1);;
 				pos_a--;
 			}
 		}
@@ -71,20 +47,17 @@ void	ft_mind(t_stack *a, t_stack *b)
 			while (index < b->size && pos_a < a->size)
 			{
 				ft_rrr(a, b);
-				write(1, "rrr\n", ft_strlen("rrr\n"));
 				index++;
 				pos_a++;
 			}
 			while (index < b->size)
 			{
-				ft_rrb(b);
-				write(1, "rrb\n", ft_strlen("rrb\n"));
+				ft_rrb(b, 1);
 				index++;
 			}
 			while (pos_a < a->size)
 			{
-				ft_rra(a);
-				write(1, "rra\n ", ft_strlen("rra\n"));
+				ft_rra(a, 1);
 				pos_a++;
 			}
 		}
@@ -97,20 +70,17 @@ void	ft_mind(t_stack *a, t_stack *b)
 					while (index > 0 && pos_a > 0)
 					{
 						ft_rr(a, b);
-						write(1, "rr\n", ft_strlen("rr\n"));
 						index--;
 						pos_a--;
 					}
 					while (index > 0)
 					{
-						ft_rb(b);
-						write(1, "rb\n ", ft_strlen("rb\n"));
+						ft_rb(b, 1);
 						index--;
 					}
 					while (pos_a > 0)
 					{
-						ft_ra(a);
-						write(1, "ra\n ", ft_strlen("ra\n"));
+						ft_ra(a, 1);
 						pos_a--;
 					}
 				}
@@ -119,20 +89,17 @@ void	ft_mind(t_stack *a, t_stack *b)
 					while (index < b->size && pos_a < a->size)
 					{
 						ft_rrr(a, b);
-						write(1, "rrr\n", ft_strlen("rrr\n"));
 						index++;
 						pos_a++;
 					}
 					while (index < b->size)
 					{
-						ft_rrb(b);
-						write(1, "rrb\n ", ft_strlen("rrb\n"));
+						ft_rrb(b, 1);
 						index++;
 					}
 					while (pos_a < a->size)
 					{
-						ft_rra(a);
-						write(1, "rra\n ", ft_strlen("rra\n"));
+						ft_rra(a, 1);
 						pos_a++;
 					}
 				}
@@ -140,14 +107,12 @@ void	ft_mind(t_stack *a, t_stack *b)
 				{
 					while (index < b->size)
 					{
-						ft_rrb(b);
-						write(1, "rrb\n", ft_strlen("rrb\n"));
+						ft_rrb(b, 1);
 						index++;
 					}
 					while (pos_a > 0)
 					{
-						ft_ra(a);
-						write(1, "ra\n ", ft_strlen("ra\n"));
+						ft_ra(a, 1);
 						pos_a--;
 					}
 				}
@@ -159,20 +124,17 @@ void	ft_mind(t_stack *a, t_stack *b)
 					while (index > 0 && pos_a > 0)
 					{
 						ft_rr(a, b);
-						write(1, "rr\n", ft_strlen("rr\n"));
 						index--;
 						pos_a--;
 					}
 					while (index > 0)
 					{
-						ft_rb(b);
-						write(1, "rb\n ", ft_strlen("rb\n"));
+						ft_rb(b, 1);
 						index--;
 					}
 					while (pos_a > 0)
 					{
-						ft_ra(a);
-						write(1, "ra\n ", ft_strlen("ra\n"));
+						ft_ra(a, 1);
 						pos_a--;
 					}
 				}
@@ -181,20 +143,17 @@ void	ft_mind(t_stack *a, t_stack *b)
 					while (index < b->size && pos_a < a->size)
 					{
 						ft_rrr(a, b);
-						write(1, "rrr\n", ft_strlen("rrr\n"));
 						index++;
 						pos_a++;
 					}
 					while (index < b->size)
 					{
-						ft_rrb(b);
-						write(1, "rrb\n ", ft_strlen("rrb\n"));
+						ft_rrb(b, 1);
 						index++;
 					}
 					while (pos_a < a->size)
 					{
-						ft_rra(a);
-						write(1, "rra\n ", ft_strlen("rra\n"));
+						ft_rra(a, 1);
 						pos_a++;
 					}
 				}
@@ -202,37 +161,28 @@ void	ft_mind(t_stack *a, t_stack *b)
 				{
 					while (pos_a < a->size)
 					{
-						ft_rra(a);
-						write(1, "rra\n ", ft_strlen("rra\n"));
+						ft_rra(a, 1);
 						pos_a++;
 					}
 					while (index > 0)
 					{
-						ft_rb(b);
-						write(1, "rb\n ", ft_strlen("rb\n"));
+						ft_rb(b, 1);
 						index--;
 					}
 				}
 			}
 		}
 		ft_pa(a, b);
-		write(1, "pa\n", ft_strlen("pa\n"));
 	}
 	index = ft_return_index(a, ft_min(a));
 	if (index <= a->size / 2 + 1)
 	{
 		while (issorted(a) != 1)
-		{
-			ft_ra(a);
-			write(1, "ra\n", ft_strlen("ra\n"));
-		}
+			ft_ra(a, 1);
 	}
 	else
 	{
 		while (issorted(a) != 1)
-		{
-			ft_rra(a);
-			write(1, "rra\n", ft_strlen("rra\n"));
-		}
+			ft_rra(a, 1);
 	}
 }

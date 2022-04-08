@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_rra(t_stack *a)
+void	ft_rra(t_stack *a, int bool)
 {
 	int	i;
 	int	tmp;
@@ -24,10 +24,12 @@ void	ft_rra(t_stack *a)
 		while (i--)
 			a->stack[i + 1] = a->stack[i];
 		a->stack[0] = tmp;
+		if (bool == 1)
+			write(1, "rra\n", ft_strlen("rra\n"));
 	}
 }
 
-void	ft_rrb(t_stack *b)
+void	ft_rrb(t_stack *b, int bool)
 {
 	int	i;
 	int	tmp;
@@ -39,11 +41,14 @@ void	ft_rrb(t_stack *b)
 		while (i--)
 			b->stack[i + 1] = b->stack[i];
 		b->stack[0] = tmp;
+		if (bool == 1)
+			write(1, "rrb\n", ft_strlen("rrb\n"));
 	}
 }
 
 void	ft_rrr(t_stack *a, t_stack *b)
 {
-	ft_rra(a);
-	ft_rrb(b);
+	ft_rra(a, 0);
+	ft_rrb(b, 0);
+	write(1, "rrr\n", ft_strlen("rrr\n"));
 }

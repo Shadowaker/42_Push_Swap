@@ -41,7 +41,7 @@ static void	sort_it(t_stack *a, t_stack *b)
 	if (a->size > 3)
 		ft_mind(a, b);
 	else
-		ft_3(a);
+		ft_basic_algorithm(a);
 }
 
 int	main(int argc, char **argv)

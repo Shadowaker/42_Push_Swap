@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:50:26 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/04/07 18:12:38 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/04/08 13:20:01 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,6 @@ void	ft_lis_lis(t_stack *a)
 	ft_memset(inds, 0, a->size + 1);
 	inds[0] = 0;
 	lis[0] = a->stack[0];
-	//i = 1;
-	//while (i++ < a->size)
-	//	lis[i] = 10000;
 	i = 1;
 	k = -1;
 	while (i < a->size)
@@ -74,8 +71,6 @@ void	ft_lis_lis(t_stack *a)
 		if (inds[i] == tmp)
 		{
 			a->arr[tmp] = a->stack[i];
-			//printf("culo %d - %d - %d\n", tmp, inds[i], a->arr[tmp]);
-			//fflush(0);
 			tmp--;
 		}
 		i--;
@@ -87,11 +82,6 @@ void	ft_lis_lis(t_stack *a)
 
 void	ft_lis(t_stack *a, t_stack *b)
 {
-//	int	size;
-
-	//show_stack(a, "A\n");
-//	size = 1;
 	ft_lis_lis(a);
-	//exit(0);
 	ft_pushinit(a, b);
 }
