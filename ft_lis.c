@@ -87,10 +87,10 @@ void	ft_lis_lis(t_stack *a)
 
 void	ft_lis(t_stack *a, t_stack *b)
 {
-	int	size;
+//	int	size;
 
 	//show_stack(a, "A\n");
-	size = 1;
+//	size = 1;
 	ft_lis_lis(a);
 	//exit(0);
 	ft_pushinit(a, b);
