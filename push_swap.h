@@ -18,7 +18,12 @@
 # include <unistd.h>
 # include <string.h>
 # include <limits.h>
+# include <fcntl.h>
 # include "Libft/libft.h"
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 3
+# endif
 
 typedef struct s_stack
 {
@@ -38,15 +43,15 @@ void	error_handler(int error);
 void	ft_swap(int *a, int *b);
 void	ft_sa(t_stack *a, int bool);
 void	ft_sb(t_stack *b, int bool);
-void	ft_ss(t_stack *a, t_stack *b);
-void	ft_pa(t_stack *a, t_stack *b);
-void	ft_pb(t_stack *a, t_stack *b);
+void	ft_ss(t_stack *a, t_stack *b, int bool);
+void	ft_pa(t_stack *a, t_stack *b, int bool);
+void	ft_pb(t_stack *a, t_stack *b, int bool);
 void	ft_ra(t_stack *a, int bool);
 void	ft_rb(t_stack *b, int bool);
-void	ft_rr(t_stack *a, t_stack *b);
+void	ft_rr(t_stack *a, t_stack *b, int bool);
 void	ft_rra(t_stack *a, int bool);
 void	ft_rrb(t_stack *b, int bool);
-void	ft_rrr(t_stack *a, t_stack *b);
+void	ft_rrr(t_stack *a, t_stack *b, int bool);
 
 void	ft_push_down(t_stack *arr, int n);
 void	ft_push_up(t_stack *arr, int n);
@@ -64,6 +69,7 @@ int		ft_max(t_stack *arr);
 int		ft_isint(char *c);
 int		ft_return_index(t_stack *arr, int n);
 
+void	sort_it(t_stack *a, t_stack *b);
 void	ft_mind(t_stack *a, t_stack *b, int off);
 void	ft_pushinit(t_stack *a, t_stack *b);
 void	ft_basic_algorithm(t_stack *a);
@@ -79,5 +85,13 @@ void	ft_pos_upper_2(t_stack *a, t_stack *b, int index, int pos_a);
 void	ft_pos_upper_3(t_stack *a, t_stack *b, int index, int pos_a);
 int		*balloc(int size, int val);
 int		val_id(t_stack *a);
+
+int		ft_find_line(char *s);
+char	*ft_strmerge(char *buff, char *tmp_buff);
+char	*ft_return_line(char *buff);
+char	*ft_prepare_next(char *buff);
+char	*get_next_line(int fd);
+char	*ft_recover(int fd, char *buff);
+int		ck_filter(t_stack *c, t_stack *d, char *s);
 
 #endif

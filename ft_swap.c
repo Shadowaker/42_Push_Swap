@@ -41,9 +41,10 @@ void	ft_sb(t_stack *b, int bool)
 	}
 }
 
-void	ft_ss(t_stack *a, t_stack *b)
+void	ft_ss(t_stack *a, t_stack *b, int bool)
 {
 	ft_sa(a, 0);
 	ft_sb(b, 0);
-	write(1, "ss\n", ft_strlen("ss\n"));
+	if (bool == 1)
+		write(1, "ss\n", ft_strlen("ss\n"));
 }

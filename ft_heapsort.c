@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 17:42:13 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/04/08 22:21:00 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/04/09 17:31:41 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_advanced_algorithm(t_stack *a, t_stack *b)
 		return ;
 	}
 	while (a->size > 3)
-		ft_pb(a, b);
+		ft_pb(a, b, 1);
 	ft_basic_algorithm(a);
 	ft_mind(a, b, 0);
 }

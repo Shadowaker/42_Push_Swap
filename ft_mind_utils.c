@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 18:22:15 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/04/08 21:29:49 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/04/09 17:21:03 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_index_upper_2(t_stack *a, t_stack *b, int index, int pos_a)
 {
 	while (index < b->size && pos_a < a->size)
 	{
-		ft_rrr(a, b);
+		ft_rrr(a, b, 1);
 		index++;
 		pos_a++;
 	}
@@ -36,7 +36,7 @@ static void	ft_index_upper_3(t_stack *a, t_stack *b, int index, int pos_a)
 {
 	while (index > 0 && pos_a > 0)
 	{
-		ft_rr(a, b);
+		ft_rr(a, b, 1);
 		index--;
 		pos_a--;
 	}
@@ -77,7 +77,7 @@ void	ft_pos_upper_2(t_stack *a, t_stack *b, int index, int pos_a)
 {
 	while (index > 0 && pos_a > 0)
 	{
-		ft_rr(a, b);
+		ft_rr(a, b, 1);
 		index--;
 		pos_a--;
 	}
@@ -97,7 +97,7 @@ void	ft_pos_upper_3(t_stack *a, t_stack *b, int index, int pos_a)
 {
 	while (index < b->size && pos_a < a->size)
 	{
-		ft_rrr(a, b);
+		ft_rrr(a, b, 1);
 		index++;
 		pos_a++;
 	}

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_pa(t_stack *a, t_stack *b)
+void	ft_pa(t_stack *a, t_stack *b, int bool)
 {
 	int	i;
 
@@ -30,11 +30,12 @@ void	ft_pa(t_stack *a, t_stack *b)
 			i++;
 		}
 		b->size -= 1;
-		write(1, "pa\n", ft_strlen("pa\n"));
+		if (bool == 1)
+			write(1, "pa\n", ft_strlen("pa\n"));
 	}
 }
 
-void	ft_pb(t_stack *a, t_stack *b)
+void	ft_pb(t_stack *a, t_stack *b, int bool)
 {
 	int	i;
 
@@ -52,7 +53,8 @@ void	ft_pb(t_stack *a, t_stack *b)
 			i++;
 		}
 		a->size -= 1;
-		write(1, "pb\n", ft_strlen("pb\n"));
+		if (bool == 1)
+			write(1, "pb\n", ft_strlen("pb\n"));
 	}
 }
 
@@ -96,9 +98,10 @@ void	ft_rb(t_stack *b, int bool)
 	}
 }
 
-void	ft_rr(t_stack *a, t_stack *b)
+void	ft_rr(t_stack *a, t_stack *b, int bool)
 {
 	ft_ra(a, 0);
 	ft_rb(b, 0);
-	write(1, "rr\n", ft_strlen("rr\n"));
+	if (bool == 1)
+		write(1, "rr\n", ft_strlen("rr\n"));
 }

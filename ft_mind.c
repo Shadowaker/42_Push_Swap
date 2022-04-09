@@ -16,7 +16,7 @@ static void	ft_mid_upper(t_stack *a, t_stack *b, int index, int pos_a)
 {
 	while (index > 0 && pos_a > 0)
 	{
-		ft_rr(a, b);
+		ft_rr(a, b, 1);
 		index--;
 		pos_a--;
 	}
@@ -36,7 +36,7 @@ static void	ft_mid_lower(t_stack *a, t_stack *b, int index, int pos_a)
 {
 	while (index < b->size && pos_a < a->size)
 	{
-		ft_rrr(a, b);
+		ft_rrr(a, b, 1);
 		index++;
 		pos_a++;
 	}
@@ -113,7 +113,7 @@ void	ft_mind(t_stack *a, t_stack *b, int off)
 			else
 				ft_pos_upper(a, b, index, pos_a);
 		}
-		ft_pa(a, b);
+		ft_pa(a, b, 1);
 	}
 	ft_roll_it(a);
 }

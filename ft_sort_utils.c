@@ -42,16 +42,12 @@ static int	ft_both_lower_half(t_stack *a, t_stack *b, int i, int nofmoves)
 	if (j > i)
 	{
 		if (nofmoves > j)
-		{
 			nofmoves = j;
-		}
 	}
 	else
 	{
 		if (nofmoves > i)
-		{
 			nofmoves = i;
-		}
 	}
 	return (nofmoves);
 }

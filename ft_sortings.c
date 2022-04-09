@@ -16,8 +16,8 @@ static void	ft_hack(t_stack *a, t_stack *b)
 {
 	if (ft_upper(a, b->stack[0]) == a->stack[0] && b->size > 0)
 	{
-		ft_pa(a, b);
-		ft_rr(a, b);
+		ft_pa(a, b, 1);
+		ft_rr(a, b, 1);
 	}
 }
 
@@ -37,13 +37,13 @@ void	ft_pushinit(t_stack *a, t_stack *b)
 			if (a->stack[0] == a->arr[j])
 			{
 				ft_hack(a, b);
-				ft_rr(a, b);
+				ft_rr(a, b, 1);
 				break ;
 			}
 			j++;
 		}
 		if (j == a->chunk_size)
-			ft_pb(a, b);
+			ft_pb(a, b, 1);
 		if (ft_issorted360(a) == 1)
 			break ;
 		i++;

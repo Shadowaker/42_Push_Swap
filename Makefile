@@ -1,6 +1,8 @@
 NAME = push_swap
+BONNAME = checker
 
-SRC = ft_isint.c \
+SRC = ft_push_swap.c \
+ft_isint.c \
 ft_mind.c \
 ft_mind_utils.c \
 ft_parser.c \
@@ -16,9 +18,12 @@ ft_lis.c \
 ft_heapsort.c \
 ft_lis_utils.c
 
-MAIN = main.c
+BONSRC = Checker_/checker_bonus.c \
+Checker_/filter_bonus.c \
+Checker_/get_next_line_utils.c \
+Checker_/get_next_line.c
 
-TESTs = Test_Env/starting.c
+MAIN = main.c
 
 HDR = push_swap.h
 
@@ -28,7 +33,7 @@ OBJ = $(SRC:.c=.o)
 
 OBJP = $(OBJ) $(MAIN:.c=.o)
 
-OBJT = $(OBJ) $(TESTs:.c=.o)
+OBJB = $(OBJ) $(BONSRC:.c=.o)
 
 RM = rm -f
 
@@ -39,7 +44,15 @@ $(NAME): $(OBJP)
 	make -C ./Libft/
 	gcc $(OBJP) $(UTS) -o $(NAME)
 
+$(BONNAME): $(OBJB)
+	make -C ./Libft/
+	gcc $(OBJB) $(UTS) -o $(BONNAME)
+
 all: $(NAME)
+	make clean
+
+bonus: $(BONNAME)
+	make clean
 
 ex: $(NAME)
 	make clean
@@ -52,21 +65,18 @@ ex2: $(NAME)
 test: all
 	make clean
 
-test2: $(OBJT)
-	make -C ./Libft/
-	gcc $(OBJT) $(UTS) -o Test_Env/test
-
 clean:
-	${RM} $(OBJP)
+	${RM} $(OBJP) $(OBJB)
 	make -C ./Libft/ clean
 
 clear: clean
 
 fclean: clean
-	${RM} $(NAME) ${OBJP} $(OBJT)
+	${RM} $(NAME) ${OBJP} $(OBJB)
 	make -C ./Libft/ fclean
 
-re: $(NAME)
+re:	fclean
+	make all
 	make clean
 
 .PHONY: all clean fclean re

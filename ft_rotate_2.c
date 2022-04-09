@@ -46,9 +46,10 @@ void	ft_rrb(t_stack *b, int bool)
 	}
 }
 
-void	ft_rrr(t_stack *a, t_stack *b)
+void	ft_rrr(t_stack *a, t_stack *b, int bool)
 {
 	ft_rra(a, 0);
 	ft_rrb(b, 0);
-	write(1, "rrr\n", ft_strlen("rrr\n"));
+	if (bool == 1)
+		write(1, "rrr\n", ft_strlen("rrr\n"));
 }

@@ -43,7 +43,7 @@ void	ft_push_both_up(t_stack *a, t_stack *b, int off)
 	i = 0;
 	while (i < off)
 	{
-		ft_rr(a, b);
+		ft_rr(a, b, 1);
 		i++;
 	}
 }
@@ -60,7 +60,7 @@ void	ft_push_both_down(t_stack *a, t_stack *b, int off, int o)
 		noff = a->size - off;
 	while (i <= noff)
 	{
-		ft_rrr(a, b);
+		ft_rrr(a, b, 1);
 		i++;
 	}
 }
