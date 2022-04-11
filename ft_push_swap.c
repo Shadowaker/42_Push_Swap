@@ -6,7 +6,7 @@
 /*   By: dridolfo <dridolfo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:25:24 by dridolfo          #+#    #+#             */
-/*   Updated: 2022/04/09 18:25:57 by dridolfo         ###   ########.fr       */
+/*   Updated: 2022/04/11 18:12:47 by dridolfo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,8 @@
 
 void	error_handler(int error)
 {
-	if (error == 0)
-		write(1, "\033[91mError.\n", ft_strlen("\033[91mError.\033[0m\n"));
-	else if (error == 1)
-		write(1, "\033[91mError.\nNot enough arguments\033[0m\n",
-			ft_strlen("\033[91mError.\nNot enough arguments\033[0m\n"));
-	else if (error == 2)
-		write(1, "\033[91mError.\nMalloc error: not enough memory\033[0m\n",
-			ft_strlen("\033[91mError.\nMalloc error: not enough memory\033[0m\n"));
-	else if (error == 3)
-		write(1, "\033[91mError.\nWrong moves passed.\033[0m\n",
-			ft_strlen("\033[91mError.\nWrong moves passed.\033[0m\n"));
+	if (error != -1)
+		write(1, "\033[91mError\033[0m\n", ft_strlen("\033[91mError\033[0m\n"));
 	exit(0);
 }
 

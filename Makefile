@@ -52,15 +52,8 @@ all: $(NAME)
 	make clean
 
 bonus: $(BONNAME)
+	make all
 	make clean
-
-ex: $(NAME)
-	make clean
-	./push_swap 0 1 4 2112 13 58678 15 2 5 6 8 20 23 12 9 2424 "42 4945 17"
-
-ex2: $(NAME)
-	make clean
-	time ./push_swap -59 313 505 393 -705 359 704 228 421 -251
 
 test: all
 	make clean
@@ -77,6 +70,10 @@ fclean: clean
 
 re:	fclean
 	make all
+	make clean
+
+rebonus: fclean
+	make bonus
 	make clean
 
 .PHONY: all clean fclean re

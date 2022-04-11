@@ -33,5 +33,5 @@ int	main(int argc, char **argv)
 			error_handler(0);
 	}
 	else
-		error_handler(1);
+		error_handler(-1);
 }
