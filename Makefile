@@ -55,9 +55,6 @@ bonus: $(BONNAME)
 	make all
 	make clean
 
-test: all
-	make clean
-
 clean:
 	${RM} $(OBJP) $(OBJB)
 	make -C ./Libft/ clean
@@ -65,7 +62,7 @@ clean:
 clear: clean
 
 fclean: clean
-	${RM} $(NAME) ${OBJP} $(OBJB)
+	${RM} $(NAME) $(BONNAME) ${OBJP} $(OBJB)
 	make -C ./Libft/ fclean
 
 re:	fclean
@@ -76,4 +73,4 @@ rebonus: fclean
 	make bonus
 	make clean
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re clear rebonus
